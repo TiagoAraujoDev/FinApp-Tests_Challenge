@@ -10,7 +10,7 @@ describe("Create a User", () => {
   beforeEach(() => {
     inMemoryUsersRepository = new InMemoryUsersRepository();
     createUserUseCase = new CreateUserUseCase(inMemoryUsersRepository);
-  })
+  });
 
   it("Should be able to create a user", async () => {
     const user = await createUserUseCase.execute({
@@ -22,8 +22,6 @@ describe("Create a User", () => {
     expect(user).toHaveProperty("id");
     expect(user).toHaveProperty("name", "Jonh Doe");
     expect(user).toHaveProperty("email", "jonhdoe@test.com");
-    // FIX
-    // expect(user.statement).toEqual("[]");
     expect(user).toBeInstanceOf(User);
   });
 
@@ -41,5 +39,5 @@ describe("Create a User", () => {
         password: "asdf",
       })
     ).rejects.toEqual(new CreateUserError());
-  })
+  });
 });

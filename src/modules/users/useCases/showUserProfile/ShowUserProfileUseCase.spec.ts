@@ -13,7 +13,7 @@ describe("Show User Profile", () => {
     inMemoryUsersRepository = new InMemoryUsersRepository();
     createUserUseCase = new CreateUserUseCase(inMemoryUsersRepository)
     showUserProfileUseCase = new ShowUserProfileUseCase(inMemoryUsersRepository);
-  })
+  });
 
   it("Should be able to get the user profile", async () => {
     const userData: ICreateUserDTO = {

@@ -1,5 +1,6 @@
 import request from "supertest";
-import { Connection, createConnection } from "typeorm";
+import { Connection } from "typeorm";
+import createConnection from "../../../../database";
 
 import { app } from "../../../../app";
 

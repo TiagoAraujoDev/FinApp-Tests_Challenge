@@ -11,12 +11,12 @@ let connection: Connection;
 describe("Show User Profile", () => {
   beforeAll(async () => {
     connection = await createConnection();
-    connection.runMigrations();
+    await connection.runMigrations();
   });
 
   afterAll(async () => {
-    connection.dropDatabase();
-    connection.close();
+    await connection.dropDatabase();
+    await connection.close();
   });
 
   it("Should be able to show user profile informations", async () => {
@@ -72,7 +72,6 @@ describe("Show User Profile", () => {
       subject: user.id,
       expiresIn,
     });
-    console.log(token);
 
     const responseProfile = await request(app)
       .get("/api/v1/profile")

@@ -1,6 +1,7 @@
 import request from "supertest";
 import { Connection } from "typeorm";
 import { sign } from "jsonwebtoken";
+import { v4 as uuid } from "uuid";
 
 import { app } from "../../../../app";
 import createConnection from "../../../../database";
@@ -64,7 +65,7 @@ describe("Show User Profile", () => {
     const { secret, expiresIn } = authConfig.jwt;
 
     const user = {
-      id: "e23fa57d-41e4-4f4d-8935-2bc3ad910ec7",
+      id: uuid(),
       name: "Toninho Estarque",
       email: "ehferro@gmail.com",
       password: "metaleiro1234",

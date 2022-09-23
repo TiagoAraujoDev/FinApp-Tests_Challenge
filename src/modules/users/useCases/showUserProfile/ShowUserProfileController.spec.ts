@@ -50,6 +50,7 @@ describe("Show User Profile", () => {
 
   it("Should not be able to show profile with a invalid JWT token", async () => {
     const token = "15hj3g45jh-1h234f2u-12h3fj";
+
     const responseProfile = await request(app)
       .get("/api/v1/profile")
       .set({
@@ -61,6 +62,7 @@ describe("Show User Profile", () => {
 
   it("Should not be able to show profile of a non existent user", async () => {
     const { secret, expiresIn } = authConfig.jwt;
+
     const user = {
       id: "e23fa57d-41e4-4f4d-8935-2bc3ad910ec7",
       name: "Toninho Estarque",

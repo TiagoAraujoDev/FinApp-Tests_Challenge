@@ -35,7 +35,7 @@ export class StatementsRepository implements IStatementsRepository {
   }: IGetStatementOperationDTO): Promise<Statement | undefined> {
     return this.repository.findOne(statement_id, {
       where: { user_id },
-      relations: ["users"],
+      // relations: ["users"],
     });
   }
 
